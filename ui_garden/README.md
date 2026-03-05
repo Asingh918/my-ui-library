@@ -54,7 +54,7 @@ npm run test
 
 ## 🐳 Docker — Deploy on port 8083
 
-> Before building, open the `Dockerfile` and replace `singh_arshpreet` with your real name (e.g. `Singh_Arshpreet`). Do the same in this README.
+> Before building, open the `Dockerfile` and replace `singh_arshpreet` with your name (e.g. `Singh_Arshpreet`).
 
 ### Build the image
 ```bash
