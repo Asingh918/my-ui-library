@@ -1,5 +1,4 @@
 # Stage 1 — Build
-# ⚠️ Replace lastName_firstName with your actual name below
 FROM node:18-alpine AS builder
 WORKDIR /singh_arshpreet_ui_garden
 COPY package*.json ./
