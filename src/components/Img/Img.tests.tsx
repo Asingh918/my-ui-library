@@ -11,11 +11,11 @@ describe('Img Component', () => {
 
   test('has reduced opacity when disabled', () => {
     render(<Img src="https://placehold.co/400x250" alt="Disabled" disabled={true} />);
-    expect(screen.getByRole('img')).toHaveStyleRule('opacity', '0.4');
+    expect(screen.getByRole('img')).toHaveStyleRule('opacity', '0.35');
   });
 
   test('has grayscale filter when disabled', () => {
     render(<Img src="https://placehold.co/400x250" alt="Disabled" disabled={true} />);
-    expect(screen.getByRole('img')).toHaveStyleRule('filter', 'grayscale(100%)');
+    expect(screen.getByRole('img')).toHaveStyleRule('filter', 'grayscale(100%) brightness(0.5)');
   });
 });
