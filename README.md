@@ -1,85 +1,81 @@
-# UI Component Library — Assignment 12
-
-**Student:** Arshpreet Singh  
-**Tech:** React 18 · TypeScript · Vite · Styled-Components · Storybook 8  
+# NexusUI — Gaming Component Library
+### WEBD-3012 · Assignment 12 · Arshpreet Singh
 
 ---
 
-## Overview
+## 🎮 About
 
-A reusable UI component library built with React, TypeScript, Styled Components, and Storybook. Each component supports custom colours, sizes, and a disabled state. All components are documented in Storybook and tested with Jest + React Testing Library.
-
----
-
-## Components
-
-| Component    | Description                                      |
-|--------------|--------------------------------------------------|
-| Button       | Clickable button with size and colour variants   |
-| Label        | Inline tag/badge element                         |
-| Text         | Paragraph and heading text block                 |
-| Table        | Full table with Header, Row, Cell, and Footer    |
-| Dropdown     | Select menu with options                         |
-| RadioButton  | Single-select radio input                        |
-| Img          | Image with disabled/grayscale state              |
-| HeroImage    | Full-width banner with title and subtitle        |
-| Card         | Content card with image, body and footer         |
+NexusUI is a reusable UI component library with a gaming dashboard theme. Built with React 18, TypeScript, Vite, Styled Components, and Storybook 8. Every component supports a default state and a disabled state, is fully typed with TypeScript, and comes with Jest tests and Storybook documentation.
 
 ---
 
-## Prerequisites
+## 🧩 Components
 
-- [Node.js](https://nodejs.org/) v18 or higher  
-- [Docker](https://www.docker.com/) (for containerised deployment)
+| Component | Description |
+|-----------|-------------|
+| `Button` | Action button with small/medium/large sizes and glow effects |
+| `Label` | Gaming badge with colour variants — LIVE, HOT, NEW PATCH etc |
+| `Text` | Text block supporting headings, body, and highlighted variants |
+| `Table` | Data table with header, rows, cells, and footer sub-components |
+| `Dropdown` | Select menu for choosing regions, game modes etc |
+| `RadioButton` | Single select input for server region or class selection |
+| `Img` | Image with grayscale+dim effect when disabled (locked content) |
+| `HeroImage` | Full-width banner with title, subtitle, and overlay gradient |
+| `Card` | Hero character card with image, description, and footer |
 
 ---
 
-## Local Development
+## ⚙️ Tech Stack
 
-### Install dependencies
+- **React 18** — UI components
+- **TypeScript** — type safety
+- **Vite** — dev server and build tool
+- **Styled Components v5** — CSS-in-JS styling
+- **Storybook 8** — component documentation and controls
+- **Jest + React Testing Library** — unit testing
+- **Docker + Nginx** — production deployment
 
+---
+
+## 🚀 Getting Started
+
+### Requirements
+- Node.js v18 or higher
+- Docker Desktop (for container deployment)
+
+### Install Dependencies
 ```bash
 npm install --legacy-peer-deps
 ```
 
-### Start Storybook (component explorer)
-
-```bash
-npm run storybook
-```
-
-Visit: **http://localhost:6006**
-
-### Run dev server
-
+### Run Dev Server
 ```bash
 npm run dev
 ```
+Opens at **http://localhost:5173**
 
-Visit: **http://localhost:5173**
+### Open Storybook
+```bash
+npm run storybook
+```
+Opens at **http://localhost:6006**
 
-### Run all tests
-
+### Run Tests
 ```bash
 npm test
 ```
-
-Expected: **9 test suites, all passing**
+Expected output: **9 suites, 27 tests, all passing**
 
 ---
 
-## Docker — Production Build on Port 8083
+## 🐳 Docker Deployment
 
-The Dockerfile builds a production Storybook static site and serves it via Nginx on port **8083**.
-
-### Step 1 — Build the Docker image
-
+### 1. Build the image
 ```bash
 docker build -t singh_arshpreet_coding_assignment12 .
 ```
 
-### Step 2 — Run the container
-
+### 2. Run the container
 ```bash
 docker run -d \
   -p 8083:8083 \
@@ -87,29 +83,31 @@ docker run -d \
   singh_arshpreet_coding_assignment12
 ```
 
-### Step 3 — Open in browser
-
+### 3. Open in browser
 ```
 http://localhost:8083
 ```
-or
-```
-http://127.0.0.1:8083
-```
 
-### Stop and remove the container
-
+### 4. Stop the container
 ```bash
 docker stop singh_arshpreet_coding_assignment12
+```
+
+### 5. Start again
+```bash
+docker start singh_arshpreet_coding_assignment12
+```
+
+### 6. Remove the container
+```bash
 docker rm singh_arshpreet_coding_assignment12
 ```
 
 ---
 
-## Project Structure
-
+## 🗂 Project Structure
 ```
-singh_arshpreet_ui_garden/       ← Docker working directory
+singh_arshpreet_ui_garden/
 ├── Dockerfile
 ├── nginx.conf
 ├── README.md
@@ -118,12 +116,14 @@ singh_arshpreet_ui_garden/       ← Docker working directory
 ├── tsconfig.json
 ├── jest.config.js
 ├── babel.config.json
+├── index.html
 ├── .storybook/
 │   ├── main.ts
 │   └── preview.ts
 └── src/
-    ├── setupTests.ts
     ├── App.tsx
+    ├── main.tsx
+    ├── setupTests.ts
     └── components/
         ├── Button/
         │   ├── Button.tsx
@@ -143,34 +143,34 @@ singh_arshpreet_ui_garden/       ← Docker working directory
 
 ---
 
-## Storybook Features
+## 📖 Storybook Features
 
-- **Controls** — modify `backgroundColor`, `color`, `label`, `size`, `disabled`, and more live in the Storybook UI
-- **Default state** — each component renders fully styled and interactive
-- **Disabled state** — components visually grey out (`background-color`, `cursor: not-allowed`) and become non-interactive
-- **Autodocs** — auto-generated API docs for every component
-
----
-
-## Tests
-
-Every component has at minimum **2 tests**:
-
-1. Component renders and is **visible** on screen
-2. **Background colour changes** to a grey value when the `disabled` prop is `true`
-
-```bash
-npm test
-```
+- **Controls panel** — change `backgroundColor`, `color`, `label`, `size`, `disabled` live
+- **Default story** — component in active/enabled state
+- **Disabled story** — component visually greyed out with `cursor: not-allowed`
+- **Autodocs** — auto generated API documentation for every component
 
 ---
 
-## Docker Details
+## 🧪 Testing
 
-| Setting        | Value                                    |
-|----------------|------------------------------------------|
-| Container name | `singh_arshpreet_coding_assignment12`    |
-| Working dir    | `/singh_arshpreet_ui_garden`             |
-| Exposed port   | `8083`                                   |
-| URL            | `http://localhost:8083` / `http://127.0.0.1:8083` |
-| Base image     | `node:18-alpine` (build) + `nginx:alpine` (serve) |
+Each component has a minimum of 3 tests:
+
+| Test | What it checks |
+|------|---------------|
+| Visibility | Component renders and is visible on screen |
+| Disabled background | Background colour changes to grey when `disabled={true}` |
+| Disabled cursor | Cursor changes to not-allowed when disabled |
+
+---
+
+## 🐳 Docker Details
+
+| Setting | Value |
+|---------|-------|
+| Container name | `singh_arshpreet_coding_assignment12` |
+| Working directory | `/singh_arshpreet_ui_garden` |
+| Port | `8083` |
+| URL | `http://localhost:8083` |
+| Build stage | `node:18-alpine` |
+| Serve stage | `nginx:stable-alpine` |
